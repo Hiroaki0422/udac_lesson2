@@ -219,12 +219,13 @@ Resources:
     Type: AWS::AutoScaling::LaunchConfiguration
     Properties:
       UserData:
-        #!/bin/bash
-        apt-get update -y
-        apt-get install apache2 -y
-        systemctl start apache2.service
-        cd /var/www/html
-        echo "Udacity Demo Web Server Up and Running!" > index.html
+        Fn::Base64: !Sub |
+          #!/bin/bash
+          apt-get update -y
+          apt-get install apache2 -y
+          systemctl start apache2.service
+          cd /var/www/html
+          echo "Udacity Demo Web Server Up and Running!" > index.html
       ImageId: ami-05b622b5fa0269787
       KeyName: hiro-udac
       SecurityGroups:
