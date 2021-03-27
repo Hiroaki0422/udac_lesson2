@@ -202,8 +202,8 @@ Resources:
       VpcId: !Ref VPC
       SecurityGroupIngress:
         - IpProtocol: tcp
-          FromPort: 8080
-          ToPort: 8080
+          FromPort: 80
+          ToPort: 80
           CidrIp: 0.0.0.0/0
         - IpProtocol: tcp
           FromPort: 22
@@ -226,7 +226,7 @@ Resources:
           systemctl start apache2.service
           cd /var/www/html
           echo "Udacity Demo Web Server Up and Running!" > index.html
-      ImageId: ami-05b622b5fa0269787
+      ImageId: ami-0ca5c3bd5a268e7db
       SecurityGroups:
         - !Ref WebServerSecGroup
       IamInstanceProfile: !Ref HiroUdacIamRole
@@ -244,7 +244,7 @@ Resources:
       HealthCheckProtocol: HTTP
       HealthCheckTimeoutSeconds: 8
       HealthyThresholdCount: 2
-      Port: 8080
+      Port: 80
       Protocol: HTTP
       UnhealthyThresholdCount: 5
       VpcId: !Ref VPC
