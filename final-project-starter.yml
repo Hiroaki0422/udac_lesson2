@@ -232,7 +232,7 @@ Resources:
       IamInstanceProfile: !Ref HiroUdacIamRole
       InstanceType: t3.small
       BlockDeviceMappings:
-        - DeviceName: "dev/sdk"
+        - DeviceName: "/dev/sdk"
           Ebs:
             VolumeSize: '10' 
 
